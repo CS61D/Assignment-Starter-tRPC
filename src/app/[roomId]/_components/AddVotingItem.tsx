@@ -36,10 +36,10 @@ export const CreateVotingItem = ({ roomId }: { roomId: string }) => {
 
     // TODO: 3.4 Add Voting Item Mutation
 
-    // TODO: 3.12 Invalidate Room On Failed Requests
+    // TODO: 3.11 Invalidate Room On Failed Requests
 
     const onSubmit: SubmitHandler<CreateItemType> = async (data) => {
-        form.reset();
+        // TODO: 3.4 Call Add Voting Item Mutation
     };
 
     return (
@@ -85,7 +85,6 @@ export const CreateVotingItem = ({ roomId }: { roomId: string }) => {
                 <Button
                     type="submit"
                     onClick={() => form.handleSubmit(onSubmit)}
-                    disabled={isPending}
                 >
                     Submit
                 </Button>

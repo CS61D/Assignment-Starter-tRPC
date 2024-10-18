@@ -15,6 +15,13 @@ export const nextStatus = (status: RoomStatus) => {
     }
 };
 
+export type ItemRoundResult = {
+    place: number;
+    voteShare: number;
+    votes: number;
+    votingItem: InferSelectModel<typeof votingItem> | undefined;
+};
+
 export const calculateResults = (
     allVotes: InferSelectModel<typeof vote>[],
     allOptions: InferSelectModel<typeof votingItem>[],
@@ -48,12 +55,6 @@ export const calculateResults = (
     }
 
     let hasWinner = false;
-    type ItemRoundResult = {
-        place: number;
-        voteShare: number;
-        votes: number;
-        votingItem: InferSelectModel<typeof votingItem> | undefined;
-    };
 
     // Each round maps the voting item to it's result within the round
     const roundResults: ItemRoundResult[][] = [];

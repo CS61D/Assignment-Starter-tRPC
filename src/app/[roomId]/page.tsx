@@ -9,6 +9,7 @@ import { CopyButton } from "./_components/CopyButton";
 import { RankVotingItems } from "./_components/RankVotingItems";
 import { Results } from "./_components/Results";
 import { VotingItems } from "./_components/VotingItems";
+import { useRouter } from "next/navigation";
 
 const getMessage = (roomStatus: "open" | "voting" | "complete") => {
     switch (roomStatus) {
@@ -23,6 +24,7 @@ const getMessage = (roomStatus: "open" | "voting" | "complete") => {
 
 const RoomPage = ({ params }: { params: { roomId: string } }) => {
     const utils = api.useUtils();
+    const router = useRouter();
 
     // TODO: 3.2 Get Room Query
     // Replace the placeholder room with the actual room
@@ -35,7 +37,7 @@ const RoomPage = ({ params }: { params: { roomId: string } }) => {
     // TODO: 3.6 Advance Stage Mutation
 
     const handleAdvanceStage = () => {
-        // logic to determine if stage can be advanced
+        // TODO: 3.6 Call Advance Stage Mutation
     };
 
     const refreshVotingItems = () => {
@@ -78,12 +80,17 @@ const RoomPage = ({ params }: { params: { roomId: string } }) => {
                         </span>
                         <Button
                             onClick={() => handleAdvanceStage()}
-                            disabled={
-                                stageAdvancing || room.status === "complete"
-                            }
+                            // TODO: 3.6 Disable button when mutation is pending
+                            disabled={room.status === "complete"}
                             variant="outline"
                         >
                             Advance stage
+                        </Button>
+                        <Button
+                            onClick={() => router.push("/")}
+                            variant="outline"
+                        >
+                            Back to Join Room
                         </Button>
                         <CopyButton copyText={params.roomId} />
                         {room.status === "open" && (

@@ -37,7 +37,7 @@ export const JoinRoom = () => {
 
     const onSubmit: SubmitHandler<JoinRoomType> = async (data) => {
         try {
-            // TODO: 3.11 Join Room
+            // TODO: 3.10 Join Room
             toast({
                 title: "Not Implemented",
                 description: "This feature is not implemented yet",

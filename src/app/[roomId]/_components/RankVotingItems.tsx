@@ -60,13 +60,15 @@ export const Task = ({
 };
 
 export const RankVotingItems = ({ roomId }: { roomId: string }) => {
+    const utils = api.useUtils();
+
     // TODO: 3.7 Get Votes Query
+    const myVotes = [];
+    const [tasks, setTasks] = useState(myVotes);
 
     // TODO: 3.8 Update Voting Items Mutation
 
-    // TODO: 3.12 Invalidate Room On Failed Requests
-
-    const [tasks, setTasks] = useState([]);
+    // TODO: 3.11 Invalidate Room On Failed Requests
 
     const sensors = useSensors(
         useSensor(PointerSensor),

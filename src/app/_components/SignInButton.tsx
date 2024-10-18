@@ -2,7 +2,7 @@
 import type { Session } from "next-auth";
 import { signIn, signOut } from "next-auth/react";
 import React from "react";
-import { Button } from "../button";
+import { Button } from "@/components/ui/button";
 
 // If the session exists, shows a sign in button, otherwise a sign out button.
 export const SignInButton = ({ session }: { session: Session | null }) => {

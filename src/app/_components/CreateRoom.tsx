@@ -65,28 +65,27 @@ export const CreateRoom = () => {
                     </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
-                    <form
-                        onSubmit={form.handleSubmit(onSubmit)}
-                        className="w-2/3 space-y-6"
-                    >
-                        <div className="max-h-96 w-full overflow-auto p-4">
-                            <FormField
-                                control={form.control}
-                                name="roomName"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Room Name</FormLabel>
-                                        <FormControl>
-                                            <Input
-                                                placeholder="Voting Room"
-                                                {...field}
-                                            />
-                                        </FormControl>
+                    <form onSubmit={form.handleSubmit(onSubmit)}>
+                        <div className="max-h-96 space-y-2 overflow-auto py-4 pl-1">
+                            <div className="flex">
+                                <FormField
+                                    control={form.control}
+                                    name="roomName"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Room Name</FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    placeholder="Voting Room"
+                                                    {...field}
+                                                />
+                                            </FormControl>
 
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                            </div>
                             {fields.map((field, index) => (
                                 <div
                                     key={field.id}
@@ -120,15 +119,15 @@ export const CreateRoom = () => {
                             ))}
                         </div>
 
-                        <Button
-                            type="button"
-                            onClick={() => {
-                                append("");
-                            }}
-                        >
-                            Add Email
-                        </Button>
                         <DialogFooter className="sm:justify-start">
+                            <Button
+                                type="button"
+                                onClick={() => {
+                                    append("");
+                                }}
+                            >
+                                Add Email
+                            </Button>
                             <Button
                                 type="submit"
                                 onClick={() => form.handleSubmit(onSubmit)}
