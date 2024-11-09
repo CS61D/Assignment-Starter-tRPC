@@ -1,5 +1,5 @@
 import { appRouter } from "@/server/api/root";
-import { renderTrpcPanel } from "@metamorph/trpc-panel";
+import { renderTrpcPanel } from "trpc-ui";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
